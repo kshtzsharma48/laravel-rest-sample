@@ -37,6 +37,11 @@ Route::get('/', function()
 	return View::make('home.index');
 });
 
+Route::get('/rest/devices', function(){
+	$devices = DB::query('select * from devices');
+	return Response::json($devices);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
